@@ -4,9 +4,9 @@ namespace WPApi\Interfaces;
 
 interface ApiInterface
 {
-    public function slug($slug);
-    public function browse($type);
     public function author($name);
-    public function tag($tag);
+    public function browse($type);
     public function search($keywords);
+    public function slug($slug);
+    public function tag($tag);
 }
