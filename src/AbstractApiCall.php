@@ -68,7 +68,6 @@ abstract class AbstractApiCall implements ApiInterface
 
     public function slug($slug)
     {
-        echo $this->getAction('information');
         $arguments = [
             'slug' => $slug,
         ];
