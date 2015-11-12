@@ -1,0 +1,23 @@
+{
+    "name": "labzone/wp-api",
+    "description": "Wordpress.org API",
+    "type": "library",
+    "require": {
+        "fabpot/goutte": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Chellem",
+            "email": "jchellem@gmail.com"
+        }
+    ],
+     "autoload": {
+        "psr-4": {
+            "WPApi\\": "src/"
+        }
+    }
+}
