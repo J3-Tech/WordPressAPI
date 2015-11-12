@@ -19,41 +19,64 @@ abstract class AbstractApiCall implements ApiInterface
         $this->client = new Client();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function author($name)
     {
-        return $this->makeApiCall('query',[
-            'author' => $name
+        return $this->makeApiCall('query', [
+            'author' => $name,
         ]);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function browse($type)
     {
-        return $this->makeApiCall('query',[
-            'browse' => $type
+        return $this->makeApiCall('query', [
+            'browse' => $type,
         ]);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function search($keywords)
     {
-        return $this->makeApiCall('query',[
-            'search' => $keywords
+        return $this->makeApiCall('query', [
+            'search' => $keywords,
         ]);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function slug($slug)
     {
         return $this->makeApiCall('information', [
-            'slug' => $slug
+            'slug' => $slug,
         ]);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function tag($tag)
     {
-        return $this->makeApiCall('query',[
-            'tag' => $tag
+        return $this->makeApiCall('query', [
+            'tag' => $tag,
         ]);
     }
 
+    /**
+     * make the actual API call.
+     *
+     * @param string $type      information or query
+     * @param array  $arguments arguments to query
+     *
+     * @return mixed
+     */
     protected function makeApiCall($type, array $arguments)
     {
         $body = [
@@ -66,6 +89,13 @@ abstract class AbstractApiCall implements ApiInterface
         return unserialize($content);
     }
 
+    /**
+     * get API action.
+     *
+     * @param string $type
+     *
+     * @return string formatted action
+     */
     protected function getAction($type)
     {
         if ($type == 'information') {
@@ -75,10 +105,20 @@ abstract class AbstractApiCall implements ApiInterface
         return "{$type}_{$this->getType()}";
     }
 
+    /**
+     * get URI of API.
+     *
+     * @return string
+     */
     protected function getUri()
     {
         return "http://api.wordpress.org/{$this->getType()}/info/1.0/";
     }
 
+    /**
+     * get the type of object to query.
+     *
+     * @return string
+     */
     abstract protected function getType();
 }

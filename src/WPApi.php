@@ -4,24 +4,53 @@ namespace WPApi;
 
 class WPApi
 {
-	private static $plugin;
-	private static $theme;
+    /**
+     * Plugin instance.
+     *
+     * @var Plugin
+     */
+    private static $plugin;
 
-    public static function plugin()
+    /**
+     * Theme instance.
+     *
+     * @var Theme
+     */
+    private static $theme;
+
+    private function __construct()
     {
-    	if(!self::$plugin){
-    		self::$plugin = new Plugin();
-    	}
-
-    	return self::$plugin;
     }
 
+    private function __clone()
+    {
+    }
+
+    /**
+     * create plugin instance.
+     *
+     * @return Plugin
+     */
+    public static function plugin()
+    {
+        if (!self::$plugin) {
+            self::$plugin = new Plugin();
+        }
+
+        return self::$plugin;
+    }
+
+    /**
+     * create theme instance.
+     *
+     * @return Theme
+     */
     public static function theme()
     {
-    	if(!self::$theme){
-    		self::$theme = new Theme();
-    	}
+        if (!self::$theme) {
+            self::$theme = new Theme();
+        }
 
-    	return self::$theme;
+        return self::$theme;
     }
 }
