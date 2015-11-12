@@ -1,8 +1,8 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
-$test = new WPApi\Plugin();
-$o =$test->slug('wordpress-seo');
+$test = new WPApi\Theme();
+$response = $test->slug('cognize');
 
-print_r($o);
+print_r($response);
