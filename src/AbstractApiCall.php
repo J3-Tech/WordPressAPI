@@ -4,6 +4,9 @@ namespace WPApi;
 
 use Goutte\Client;
 use WPApi\Interfaces\ApiInterface;
+use AutoMapper\AutoMapper;
+use WPApi\Model\Theme as ThemeModel;
+use WPApi\Model\Collection;
 
 abstract class AbstractApiCall implements ApiInterface
 {
@@ -14,9 +17,12 @@ abstract class AbstractApiCall implements ApiInterface
      */
     protected $client;
 
+    protected $automapper;
+
     public function __construct()
     {
         $this->client = new Client();
+        $this->automapper = new AutoMapper();
     }
 
     /**
@@ -86,7 +92,40 @@ abstract class AbstractApiCall implements ApiInterface
         $this->client->request('POST', $this->getUri(), $body);
         $content = $this->client->getResponse()->getContent();
 
-        return unserialize($content);
+        return $this->mapResponse(unserialize($content));
+    }
+
+    protected function mapResponseToCollection(\stdClass $response)
+    {
+        $type = $this->getType();
+        if(!property_exists($response, $type)){
+            throw new \Exception("Property {$type} does not exist.");
+        }
+        $collection = new Collection();
+        foreach ($response->$type as $key => $value) {
+            $model = $this->mapResponseToModel($value);
+            $collection->add($model);
+        }
+
+        return $collection;
+    }
+
+    protected function mapResponseToModel(\stdClass $response)
+    {
+        $model = $this->createModel();
+        print_r($response);
+        $this->automapper->map($response, $model);
+
+        return $model;
+    }
+
+    protected function mapResponse(\stdClass $response)
+    {
+        try{
+            return $this->mapResponseToCollection($response);
+        }catch(\Exception $e){
+            return $this->mapResponseToModel($response);
+        }
     }
 
     /**
@@ -121,4 +160,10 @@ abstract class AbstractApiCall implements ApiInterface
      * @return string
      */
     abstract protected function getType();
+
+    /**
+     * create model
+     * @return mixed
+     */
+    abstract protected function createModel();
 }

@@ -2,6 +2,8 @@
 
 namespace WPApi;
 
+use WPApi\Model\Theme as ThemeModel;
+
 class Theme extends AbstractApiCall
 {
     /**
@@ -10,5 +12,13 @@ class Theme extends AbstractApiCall
     protected function getType()
     {
         return 'themes';
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    protected function createModel()
+    {
+    	return new ThemeModel();
     }
 }

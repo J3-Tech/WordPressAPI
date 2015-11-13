@@ -2,6 +2,8 @@
 
 namespace WPApi;
 
+use WPApi\Model\Plugin as PluginModel;
+
 class Plugin extends AbstractApiCall
 {
     /**
@@ -10,5 +12,13 @@ class Plugin extends AbstractApiCall
     protected function getType()
     {
         return 'plugins';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function createModel()
+    {
+    	return new PluginModel();
     }
 }
