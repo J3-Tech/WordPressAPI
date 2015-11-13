@@ -2,7 +2,7 @@
 
 namespace WPApi\Tests;
 
-use WPApi\Plugin;
+use WPApi\WPApi;
 
 class PluginTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,6 +11,12 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     public function testAuthor()
     {
         $response = $this->plugin->author('Ryuhei Yokokawa');
+        $this->assertInstanceOf('WPApi\\Model\\Collection', $response);
+    }
+
+    public function testBrowse()
+    {
+        $response = $this->plugin->browse('new');
         $this->assertInstanceOf('WPApi\\Model\\Collection', $response);
     }
 
@@ -26,8 +32,14 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('WPApi\\Model\\Plugin', $response);
     }
 
+    public function testTag()
+    {
+        $response = $this->plugin->tag('seo');
+        $this->assertInstanceOf('WPApi\\Model\\Collection', $response);
+    }
+
     public function setup()
     {
-        $this->plugin = new Plugin();
+        $this->plugin = WPApi::plugin();
     }
 }
