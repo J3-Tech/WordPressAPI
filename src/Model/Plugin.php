@@ -2,16 +2,15 @@
 
 namespace WPApi\Model;
 
-class Plugin
+class Plugin extends AbstractModel
 {
-	private $name;
-	private $slug;
-	private $version;
-	private $previewUrl;
-	private $author;
-	private $screenshotUrl;
-	private $rating;
-	private $homepage;
-	private $description;
-	private $downloaded;
+    protected $authorProfile;
+    protected $contributors;
+    protected $requires;
+    protected $tested;
+    protected $compatibility;
+    protected $ratings;
+    protected $downloaded;
+    protected $added;
+    protected $donateLink;
 }

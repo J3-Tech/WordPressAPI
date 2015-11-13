@@ -2,15 +2,11 @@
 
 namespace WPApi\Model;
 
-class Theme
+class Theme extends AbstractModel
 {
-	private $name;
-	private $slug;
-	private $version;
-	private $previewUrl;
-	private $author;
-	private $screenshotUrl;
-	private $rating;
-	private $homepage;
-	private $description;
+    protected $description;
+    protected $downloaded;
+    protected $lastUpdated;
+    protected $previewUrl;
+    protected $screenshotUrl;
 }
