@@ -13,12 +13,12 @@ class Theme extends AbstractApiCall
     {
         return 'themes';
     }
-    
+
     /**
      * {@inheritdoc}
      */
     protected function createModel()
     {
-    	return new ThemeModel();
+        return new ThemeModel();
     }
 }

@@ -4,10 +4,10 @@ namespace WPApi\Model;
 
 class Collection
 {
-	private $items = array();
+    private $items = array();
 
-	public function add($item)
-	{
-		$this->items[]=$item;
-	}
+    public function add($item)
+    {
+        $this->items[] = $item;
+    }
 }

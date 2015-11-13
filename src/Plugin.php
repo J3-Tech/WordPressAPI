@@ -19,6 +19,6 @@ class Plugin extends AbstractApiCall
      */
     protected function createModel()
     {
-    	return new PluginModel();
+        return new PluginModel();
     }
 }
