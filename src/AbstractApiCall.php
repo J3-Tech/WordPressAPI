@@ -5,7 +5,6 @@ namespace WPApi;
 use Goutte\Client;
 use WPApi\Interfaces\ApiInterface;
 use AutoMapper\AutoMapper;
-use WPApi\Model\Theme as ThemeModel;
 use WPApi\Model\Collection;
 
 abstract class AbstractApiCall implements ApiInterface
@@ -17,6 +16,11 @@ abstract class AbstractApiCall implements ApiInterface
      */
     protected $client;
 
+    /**
+     * auto mapper.
+     *
+     * @var AutoMapper
+     */
     protected $automapper;
 
     public function __construct()
@@ -98,7 +102,7 @@ abstract class AbstractApiCall implements ApiInterface
     protected function mapResponseToCollection(\stdClass $response)
     {
         $type = $this->getType();
-        if(!property_exists($response, $type)){
+        if (!property_exists($response, $type)) {
             throw new \Exception("Property {$type} does not exist.");
         }
         $collection = new Collection();
@@ -113,17 +117,23 @@ abstract class AbstractApiCall implements ApiInterface
     protected function mapResponseToModel(\stdClass $response)
     {
         $model = $this->createModel();
-        print_r($response);
         $this->automapper->map($response, $model);
 
         return $model;
     }
 
+    /**
+     * map response to model.
+     *
+     * @param \stdClass $response
+     *
+     * @return mixed
+     */
     protected function mapResponse(\stdClass $response)
     {
-        try{
+        try {
             return $this->mapResponseToCollection($response);
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return $this->mapResponseToModel($response);
         }
     }
@@ -162,7 +172,8 @@ abstract class AbstractApiCall implements ApiInterface
     abstract protected function getType();
 
     /**
-     * create model
+     * create model.
+     *
      * @return mixed
      */
     abstract protected function createModel();
