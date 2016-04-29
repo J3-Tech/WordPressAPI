@@ -1,0 +1,6 @@
+{
+  "name": "Wpapi",
+  "tagline": "Wordpress.org API",
+  "body": "# WPApi\r\n[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/labzone/WPApi/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/labzone/WPApi/?branch=master)\r\n[![Build Status](https://travis-ci.org/labzone/WPApi.svg?branch=master)](https://travis-ci.org/labzone/WPApi)\r\n\r\nWordpress.org API\r\n\r\n## Examples\r\n\r\n### Plugin\r\n\r\n#### Search\r\n```php\r\n$response = WPApi\\WPApi::plugin()->search('wordpress seo');\r\n\r\n```\r\n\r\n#### Slug\r\n```php\r\n$response = WPApi\\WPApi::plugin()->slug('wordpress-seo');\r\n\r\n```\r\n\r\n\r\n### Theme\r\n\r\n#### Search\r\n```php\r\n$response = WPApi\\WPApi::theme()->search('simple');\r\n\r\n```\r\n\r\n#### Slug\r\n```php\r\n$response = WPApi\\WPApi::theme()->slug('simpler');\r\n\r\n```\r\n\r\n#### Author\r\n```php\r\n$response = WPApi\\WPApi::theme()->slug('fontethemes');\r\n\r\n```",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}

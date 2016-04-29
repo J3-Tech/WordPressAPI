@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Wpapi by labzone</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Wpapi</h1>
+        <p>Wordpress.org API</p>
+        <p class="view"><a href="https://github.com/labzone/WPApi">View the Project on GitHub <small>labzone/WPApi</small></a></p>
+        <ul>
+          <li><a href="https://github.com/labzone/WPApi/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/labzone/WPApi/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/labzone/WPApi">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="wpapi" class="anchor" href="#wpapi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WPApi</h1>
+
+<p><a href="https://scrutinizer-ci.com/g/labzone/WPApi/?branch=master"><img src="https://scrutinizer-ci.com/g/labzone/WPApi/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="https://travis-ci.org/labzone/WPApi"><img src="https://travis-ci.org/labzone/WPApi.svg?branch=master" alt="Build Status"></a></p>
+
+<p>Wordpress.org API</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3>
+<a id="plugin" class="anchor" href="#plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Plugin</h3>
+
+<h4>
+<a id="search" class="anchor" href="#search" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">WPApi\</span><span class="pl-c1">WPApi</span><span class="pl-k">::</span>plugin()<span class="pl-k">-&gt;</span>search(<span class="pl-s"><span class="pl-pds">'</span>wordpress seo<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<h4>
+<a id="slug" class="anchor" href="#slug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Slug</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">WPApi\</span><span class="pl-c1">WPApi</span><span class="pl-k">::</span>plugin()<span class="pl-k">-&gt;</span>slug(<span class="pl-s"><span class="pl-pds">'</span>wordpress-seo<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<h3>
+<a id="theme" class="anchor" href="#theme" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Theme</h3>
+
+<h4>
+<a id="search-1" class="anchor" href="#search-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Search</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">WPApi\</span><span class="pl-c1">WPApi</span><span class="pl-k">::</span>theme()<span class="pl-k">-&gt;</span>search(<span class="pl-s"><span class="pl-pds">'</span>simple<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<h4>
+<a id="slug-1" class="anchor" href="#slug-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Slug</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">WPApi\</span><span class="pl-c1">WPApi</span><span class="pl-k">::</span>theme()<span class="pl-k">-&gt;</span>slug(<span class="pl-s"><span class="pl-pds">'</span>simpler<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+
+<h4>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-smi">$response</span> <span class="pl-k">=</span> <span class="pl-c1">WPApi\</span><span class="pl-c1">WPApi</span><span class="pl-k">::</span>theme()<span class="pl-k">-&gt;</span>slug(<span class="pl-s"><span class="pl-pds">'</span>fontethemes<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span></pre></div>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/labzone">labzone</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
